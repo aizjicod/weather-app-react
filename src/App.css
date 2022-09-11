@@ -1,38 +1,97 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+#header {
+  background: #cae6ea;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 50px;
+}
+
+.header-img {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+}
+
+.header-h1 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* app */
+
+.container {
+  padding: 100px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.label-location {
+  padding: 0 15px;
+  display: flex;
+  gap: 12px;
+  height: min-content;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.weather-container {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #1d53969d;
+  border-radius: 30px;
+  padding: 20px 10px;
+}
+
+.weather-h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.pr-div {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  padding: 0 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.weather-ul {
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  list-style-type: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 768px) {
+  #header {
+    justify-content: stretch;
   }
-  to {
-    transform: rotate(360deg);
+
+  .header-img {
+    height: 150px;
+    width: 150px;
+    margin-left: 50px;
+  }
+
+  .header-h1 {
+    width: 70%;
+    font-size: 50px;
+  }
+
+  .weather-container {
+    width: 50%;
+    justify-content: space-around;
+  }
+
+  .pr-div {
+    flex-grow: 0;
   }
 }
