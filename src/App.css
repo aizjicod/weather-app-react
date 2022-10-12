@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 #header {
   background: #cae6ea;
   display: flex;
@@ -73,6 +79,7 @@
 @media screen and (min-width: 768px) {
   #header {
     justify-content: stretch;
+    width: 70%;
   }
 
   .header-img {
@@ -87,7 +94,7 @@
   }
 
   .weather-container {
-    width: 50%;
+    width: 80%;
     justify-content: space-around;
   }
 
