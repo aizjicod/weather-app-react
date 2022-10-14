@@ -1,16 +1,20 @@
 import apiService from '../api/http';
 
-const GET_LOCATION_KEY = 'WheatherAppReact/reducers/GET_LOCATION_KEY';
-// const GET_FORECAST = 'Wheather-app-react/actions/GET_FORECAST';
+const GET_FORECAST = 'Wheather-app-react/actions/GET_FORECAST';
 
-export const getLocationKeyAction = (location) => async (dispatch) => {
+export const getForecastAction = (location) => async (dispatch) => {
   try {
-    const res = await apiService.getLocationKey(location);
-    dispatch({
-      type: GET_LOCATION_KEY,
-      location: res.data,
+    const listlocation = await apiService.getLocationKey(location);
+    const listPromises = listlocation.data.map(async (data) => {
+      const weather = await apiService.getForecast(data.Key);
+      return weather.data.DailyForecasts;
     });
-    return Promise.resolve(res.data);
+    const listForecast = await Promise.all(listPromises);
+    dispatch({
+      type: GET_FORECAST,
+      payload: [listForecast, listlocation.data],
+    });
+    return Promise.resolve([listForecast]);
   } catch (err) {
     return Promise.reject(err);
   }
@@ -18,10 +22,11 @@ export const getLocationKeyAction = (location) => async (dispatch) => {
 
 const reducer = (state = { location: null, forecast: null }, action) => {
   switch (action.type) {
-    case GET_LOCATION_KEY:
+    case GET_FORECAST:
+      console.log(action.payload);
       return {
-        ...state,
-        location: action.location[0].Key,
+        location: action.payload[1],
+        forecast: action.payload[0],
       };
     default:
       return state;

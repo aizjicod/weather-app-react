@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import { TiWeatherSunny } from 'react-icons/ti';
 
 const WeatherLi = ({ day, temperature }) => (
   <li>
-    <img src="#" alt="climate weather" />
+    <TiWeatherSunny className="icon-li" />
     <p>{day}</p>
     <p>
       {temperature}
