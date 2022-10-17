@@ -167,6 +167,15 @@
 .weather-ul li {
  display: flex;
  flex-wrap: wrap;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.li-day{
+ width: 100%;
+ height: min-content;
+ margin: 0;
+ text-align: center;
 }
 
 @media screen and (min-width: 768px) {

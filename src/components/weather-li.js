@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { TiWeatherSunny } from 'react-icons/ti';
+import searchWeatherUtilities from '../modules/icons-weather';
 
-const WeatherLi = ({ day, temperature }) => (
+const WeatherLi = ({ day = 'day', temperature = 0, icon = 1 }) => (
   <li>
-    <TiWeatherSunny className="icon-li" />
-    <p>{day}</p>
+    <p className="li-day">{day}</p>
+    {searchWeatherUtilities({ index: icon, className: 'icon-li' })}
     <p>
       {temperature}
       °C
@@ -14,7 +14,8 @@ const WeatherLi = ({ day, temperature }) => (
 
 WeatherLi.propTypes = {
   day: PropTypes.string.isRequired,
-  temperature: PropTypes.string.isRequired,
+  temperature: PropTypes.number.isRequired,
+  icon: PropTypes.number.isRequired,
 };
 
 export default WeatherLi;

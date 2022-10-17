@@ -9,54 +9,103 @@ const Weather = ({ index }) => {
   const locationList = useSelector((state) => state.weather.location);
   const forecastList = useSelector((state) => state.weather.forecast);
   const location = locationList !== null ? locationList[index] : false;
-  const data = forecastList ? forecastList[index][0] : false;
-  const date = getDate(data.Date);
+  const data = forecastList ? forecastList[index] : false;
   console.log(data);
+  const date = data ? getDate(data[0].Date) : 'day';
   return (
     <div className="weather-container">
       <div className="weather-img" />
       <h2 className="weather-h2">{location ? `${location.Country.EnglishName} / ${location.LocalizedName}` : 'city/state'}</h2>
       <div className="pr-div">
         {data
-          ? searchWeatherUtilities({ index: data.Day.Icon, className: 'icon' })
+          ? searchWeatherUtilities({ index: data[0].Day.Icon, className: 'icon' })
           : <TiWeatherSunny className="icon" />}
         <p className="pr-information day">
-          {data
-            ? date
-            : 'date'}
+          {date}
         </p>
         <p className="pr-information">
           {data
-            ? `Temperature: ${Math.trunc((data.Temperature.Maximum.Value
-            + data.Temperature.Minimum.Value) / 2)} C°`
+            ? `Temperature: ${Math.trunc((data[0].Temperature.Maximum.Value
+              + data[0].Temperature.Minimum.Value) / 2)} C°`
             : 'day'}
         </p>
         <p className="pr-information">
           {data
-            ? `Rain probability: ${data.Day.RainProbability}%`
+            ? `Rain probability: ${data[0].Day.RainProbability}%`
             : 'Rain probability: 0%'}
         </p>
         <p className="pr-information">
           {data
-            ? `Snow probability: ${data.Day.SnowProbability}%`
+            ? `Snow probability: ${data[0].Day.SnowProbability}%`
             : 'Snow probability: 0%'}
         </p>
         <p className="pr-information">
           {data
-            ? `Thunderstorm probability: ${data.Day.ThunderstormProbability}%`
+            ? `Thunderstorm probability: ${data[0].Day.ThunderstormProbability}%`
             : 'Thunderstorm probability: 0%'}
         </p>
         <p className="pr-information">
           {data
-            ? `Wind speed: ${data.Day.Wind.Speed.Value} km/h ${data.Day.Wind.Direction.English}`
+            ? `Wind speed: ${data[0].Day.Wind.Speed.Value} km/h ${data[0].Day.Wind.Direction.English}`
             : 'Wind speed: 0km N'}
         </p>
       </div>
       <ul className="weather-ul">
-        <WeatherLi day="Monday" temperature="45" />
-        <WeatherLi day="Tuesday" temperature="15" />
-        <WeatherLi day="Wesnday" temperature="40" />
-        <WeatherLi day="thurstday" temperature="20" />
+        {data
+          ? (
+            <>
+              {' '}
+              <WeatherLi
+                day={getDate(data[1].Date)}
+                temperature={Math.trunc((data[1].Temperature.Maximum.Value
+            + data[1].Temperature.Minimum.Value) / 2)}
+                icon={data[1].Day.Icon}
+              />
+              <WeatherLi
+                day={getDate(data[2].Date)}
+                temperature={Math.trunc((data[2].Temperature.Maximum.Value
+            + data[2].Temperature.Minimum.Value) / 2)}
+                icon={data[2].Day.Icon}
+              />
+              <WeatherLi
+                day={getDate(data[3].Date)}
+                temperature={Math.trunc((data[3].Temperature.Maximum.Value
+            + data[3].Temperature.Minimum.Value) / 2)}
+                icon={data[3].Day.Icon}
+              />
+
+              <WeatherLi
+                day={getDate(data[4].Date)}
+                temperature={Math.trunc((data[4].Temperature.Maximum.Value
+            + data[4].Temperature.Minimum.Value) / 2)}
+                icon={data[4].Day.Icon}
+              />
+            </>
+          )
+          : (
+            <>
+              <WeatherLi
+                day="monday"
+                temperature={18}
+                icon={1}
+              />
+              <WeatherLi
+                day="monday"
+                temperature={18}
+                icon={1}
+              />
+              <WeatherLi
+                day="monday"
+                temperature={18}
+                icon={1}
+              />
+              <WeatherLi
+                day="monday"
+                temperature={18}
+                icon={1}
+              />
+            </>
+          )}
       </ul>
     </div>
   );

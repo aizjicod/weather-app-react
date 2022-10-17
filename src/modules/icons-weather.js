@@ -17,6 +17,6 @@ const searchIcon = (settings) => {
   return <TiWeatherWindy className={settings.className} />;
 };
 
-const searchWeatherUtilities = (number) => searchIcon(number, 'icon');
+const searchWeatherUtilities = (settings) => searchIcon(settings);
 
 export default searchWeatherUtilities;
