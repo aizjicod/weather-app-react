@@ -50,12 +50,40 @@
   gap: 50px;
 }
 
+/* label */
+
 .label-location {
   padding: 0 15px;
   display: flex;
   gap: 12px;
   height: min-content;
 }
+
+#input-submit {
+  border-radius: 10px;
+  border: none;
+  padding: 5px 20px;
+  background: #0F41B4;
+  font-weight: 900;
+  color: #CAE6EA;
+}
+
+#input-submit:hover {
+  background: #CAE6EA;
+  color: #0F41B4;
+}
+
+#location-input {
+  padding: 10px;
+  border-radius: 10px;
+  padding-left: 20px;
+  outline: none;
+  border: none;
+  background: #CAE6EA;
+  font-weight: 900;
+}
+
+/* swiper  */
 
 .swiper {
   width: 90%;
