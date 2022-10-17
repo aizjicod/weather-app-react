@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div className="container">
       <form onSubmit={handleOnSubmit}>
-        <label htmlFor="location-imput" className="label-location">
+        <label htmlFor="location-input" className="label-location">
           <input type="text" id="location-input" placeholder="Introduce state" onChange={handleOnChange} />
           <input type="submit" id="input-submit" />
         </label>
