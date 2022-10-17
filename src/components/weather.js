@@ -10,15 +10,14 @@ const Weather = ({ index }) => {
   const forecastList = useSelector((state) => state.weather.forecast);
   const location = locationList !== null ? locationList[index] : false;
   const data = forecastList ? forecastList[index] : false;
-  console.log(data);
   const date = data ? getDate(data[0].Date) : 'day';
   return (
     <div className="weather-container">
-      <div className="weather-img" />
+      {searchWeatherUtilities.changeBackground(data[0].Day.Icon)}
       <h2 className="weather-h2">{location ? `${location.Country.EnglishName} / ${location.LocalizedName}` : 'city/state'}</h2>
       <div className="pr-div">
         {data
-          ? searchWeatherUtilities({ index: data[0].Day.Icon, className: 'icon' })
+          ? searchWeatherUtilities.searchIcon({ index: data[0].Day.Icon, className: 'icon' })
           : <TiWeatherSunny className="icon" />}
         <p className="pr-information day">
           {date}

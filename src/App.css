@@ -82,27 +82,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 99%;
-  height: 93%;
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP91rAqKx4TT12Je0boirBC_RAO8PZz9IIJQ&usqp=CAU) no-repeat;
+  height: 92%;
+  background:no-repeat;
   background-size: cover;
   z-index: -999;
-  filter: blur(10px);
+  filter: blur(15px);
   border-radius: 50px;
 }
 
-/* trueno */
-
-/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToEw1oW4mgRLuSQ7BU2kN4iL1aiMAXs8dlMA&usqp=CAU */
-
-/* soleado */
-
-/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP91rAqKx4TT12Je0boirBC_RAO8PZz9IIJQ&usqp=CAU */
-
-/* niebe */
-
-/* https://images.unsplash.com/photo-1528191710846-99b8717a2830?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80g */
-
-/* https://entrazos.com/wp-content/uploads/2014/12/nieve.gif */
 .weather-h2 {
   position: absolute;
   top: 10px;

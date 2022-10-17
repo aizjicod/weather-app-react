@@ -4,7 +4,7 @@ import searchWeatherUtilities from '../modules/icons-weather';
 const WeatherLi = ({ day = 'day', temperature = 0, icon = 1 }) => (
   <li>
     <p className="li-day">{day}</p>
-    {searchWeatherUtilities({ index: icon, className: 'icon-li' })}
+    {searchWeatherUtilities.searchIcon({ index: icon, className: 'icon-li' })}
     <p>
       {temperature}
       °C
