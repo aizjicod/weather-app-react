@@ -71,6 +71,8 @@
   border-radius: 30px;
   padding: 20px 10px;
   backdrop-filter: blur(10px);
+  font-weight: bold;
+  color: #fff;
 }
 
 .weather-img {
@@ -110,18 +112,26 @@
 }
 
 .pr-div {
-  width: 70%;
+  position: relative;
+  left: 250px;
+  top: 20px;
   display: grid;
-  grid-auto-rows: 1fr;
-  align-items: center;
-  padding: 0 20px;
+  grid-auto-rows: 50px;
+  gap: 10px;
+  padding: 50px;
+  border-radius: 18px;
+  align-items: flex-start;
+  justify-content: center;
+  background: #00000080;
+  backdrop-filter: blur(10px);
 }
 
 .icon {
   width: 200px;
   height: 200px;
-  position: relative;
-  top: -30px;
+  position: absolute;
+  left: -55%;
+  top: -10%;
   font-weight: 900;
   align-self: flex-start;
   justify-self: flex-start;
@@ -133,9 +143,14 @@
   height: 30px;
 }
 
-.pr-day,
-.pr-temperature {
+.pr-information {
   text-align: center;
+  font-size: 1.3em;
+}
+
+.pr-information.day{
+  text-align: center;
+  font-size: 1.8em;
 }
 
 .weather-ul {
@@ -175,8 +190,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    color: #fff;
   }
 
   .weather-container {

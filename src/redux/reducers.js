@@ -23,7 +23,6 @@ export const getForecastAction = (location) => async (dispatch) => {
 const reducer = (state = { location: null, forecast: null }, action) => {
   switch (action.type) {
     case GET_FORECAST:
-      console.log(action.payload);
       return {
         location: action.payload[1],
         forecast: action.payload[0],

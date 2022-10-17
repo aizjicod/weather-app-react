@@ -1,30 +1,55 @@
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { TiWeatherStormy } from 'react-icons/ti';
+import { TiWeatherSunny } from 'react-icons/ti';
 import WeatherLi from './weather-li';
-// import { useEffect } from 'react';
+import searchWeatherUtilities from '../modules/icons-weather';
+import getDate from '../modules/date-days';
 
 const Weather = ({ index }) => {
   const locationList = useSelector((state) => state.weather.location);
   const forecastList = useSelector((state) => state.weather.forecast);
   const location = locationList !== null ? locationList[index] : false;
-  console.log(forecastList);
+  const data = forecastList ? forecastList[index][0] : false;
+  const date = getDate(data.Date);
+  console.log(data);
   return (
     <div className="weather-container">
       <div className="weather-img" />
       <h2 className="weather-h2">{location ? `${location.Country.EnglishName} / ${location.LocalizedName}` : 'city/state'}</h2>
       <div className="pr-div">
-        <TiWeatherStormy className="icon" />
-        <p className="pr-day">
-          {forecastList !== null && forecastList !== undefined
-            ? forecastList[index][0].Date.slice(5, 10)
+        {data
+          ? searchWeatherUtilities({ index: data.Day.Icon, className: 'icon' })
+          : <TiWeatherSunny className="icon" />}
+        <p className="pr-information day">
+          {data
+            ? date
+            : 'date'}
+        </p>
+        <p className="pr-information">
+          {data
+            ? `Temperature: ${Math.trunc((data.Temperature.Maximum.Value
+            + data.Temperature.Minimum.Value) / 2)} C°`
             : 'day'}
         </p>
-        <p className="pr-temperature">
-          {forecastList !== null
-            ? forecastList[index][0].Temperature.Maximum.Value
-            + forecastList[index][0].Temperature.Minimum.Value / 2
-            : 'day'}
+        <p className="pr-information">
+          {data
+            ? `Rain probability: ${data.Day.RainProbability}%`
+            : 'Rain probability: 0%'}
+        </p>
+        <p className="pr-information">
+          {data
+            ? `Snow probability: ${data.Day.SnowProbability}%`
+            : 'Snow probability: 0%'}
+        </p>
+        <p className="pr-information">
+          {data
+            ? `Thunderstorm probability: ${data.Day.ThunderstormProbability}%`
+            : 'Thunderstorm probability: 0%'}
+        </p>
+        <p className="pr-information">
+          {data
+            ? `Wind speed: ${data.Day.Wind.Speed.Value} km/h ${data.Day.Wind.Direction.English}`
+            : 'Wind speed: 0km N'}
         </p>
       </div>
       <ul className="weather-ul">
