@@ -30,9 +30,8 @@ const Home = () => {
     <div className="container">
       <form onSubmit={handleOnSubmit}>
         <label htmlFor="location-imput" className="label-location">
-          Select your country/state
-          <input type="text" id="location-imput" onChange={handleOnChange} />
-          <input type="submit" />
+          <input type="text" id="location-input" placeholder="Introduce state" onChange={handleOnChange} />
+          <input type="submit" id="input-submit" />
         </label>
       </form>
       {data

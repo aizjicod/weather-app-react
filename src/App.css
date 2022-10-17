@@ -26,12 +26,6 @@
   padding: 15px 50px;
   border-radius: 20px;
   color: #0f41b4;
-
-  /* #27897d */
-
-  /*  #274589 */
-
-  /* #2ca5df */
   text-shadow: 20px 10px 20px #0b516f;
 }
 
@@ -56,6 +50,8 @@
   gap: 50px;
 }
 
+/* label */
+
 .label-location {
   padding: 0 15px;
   display: flex;
@@ -63,14 +59,58 @@
   height: min-content;
 }
 
+#input-submit {
+  border-radius: 10px;
+  border: none;
+  padding: 5px 20px;
+  background: #0f41b4;
+  font-weight: 900;
+  color: #cae6ea;
+}
+
+#input-submit:hover {
+  background: #cae6ea;
+  color: #0f41b4;
+}
+
+#location-input {
+  padding: 10px;
+  border-radius: 10px;
+  padding-left: 20px;
+  outline: none;
+  border: none;
+  background: #cae6ea;
+  font-weight: 900;
+}
+
+/* swiper  */
+
+.swiper {
+  width: 90%;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+}
+
 .weather-container {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   border-radius: 30px;
-  padding: 20px 10px;
+  padding: 150px 50px 100px;
   backdrop-filter: blur(10px);
+  font-weight: bold;
+  color: #fff;
 }
 
 .weather-img {
@@ -79,49 +119,44 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 99%;
-  height: 93%;
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToEw1oW4mgRLuSQ7BU2kN4iL1aiMAXs8dlMA&usqp=CAU) no-repeat;
+  height: 92%;
+  background: no-repeat center;
   background-size: cover;
   z-index: -999;
-  filter: blur(10px);
+  filter: blur(15px);
   border-radius: 50px;
 }
 
-/* trueno */
-
-/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToEw1oW4mgRLuSQ7BU2kN4iL1aiMAXs8dlMA&usqp=CAU */
-
-/* soleado */
-
-/* https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP91rAqKx4TT12Je0boirBC_RAO8PZz9IIJQ&usqp=CAU */
-
-/* niebe */
-
-/* https://images.unsplash.com/photo-1528191710846-99b8717a2830?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80g */
-
-/* https://entrazos.com/wp-content/uploads/2014/12/nieve.gif */
 .weather-h2 {
   position: absolute;
-  top: 10px;
-  left: -50px;
+  top: 40px;
+  top: 60px;
+  left: 30px;
   width: 100%;
   font-size: 2em;
+  font-size: 1.3em;
   text-align: center;
+  z-index: 100;
 }
 
 .pr-div {
-  width: 70%;
   display: grid;
-  grid-auto-rows: 1fr;
-  align-items: center;
-  padding: 0 20px;
+  grid-auto-rows: 50px;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 18px;
+  align-items: flex-start;
+  justify-content: center;
+  background: #00000080;
+  backdrop-filter: blur(10px);
 }
 
 .icon {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  top: -30px;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: -20%;
+  top: -10%;
   font-weight: 900;
   align-self: flex-start;
   justify-self: flex-start;
@@ -133,18 +168,39 @@
   height: 30px;
 }
 
-.pr-day,
-.pr-temperature {
+.pr-information {
   text-align: center;
+  font-size: 1em;
+}
+
+.pr-information.day {
+  font-size: 1.3em;
 }
 
 .weather-ul {
-  padding: 0;
-  width: 30%;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
+  justify-content: center;
+  border-radius: 18px;
+  padding: 2em;
   gap: 12px;
   list-style-type: none;
+  background: #00000080;
+  backdrop-filter: blur(10px);
+}
+
+.weather-ul li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.li-day {
+  width: 100%;
+  height: min-content;
+  margin: 0;
+  text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -167,28 +223,44 @@
     font-size: 80px;
   }
 
-  .swiper {
-    width: 90%;
-  }
-
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #fff;
-  }
-
-  .weather-container {
-    justify-content: space-between;
-  }
-
   .swiper-button-next,
   .swiper-button-prev {
     color: #808;
+    display: flex;
+  }
+
+  .weather-container {
+    justify-content: space-around;
+    padding: 150px 100px 100px;
+  }
+
+  .weather-h2 {
+    top: 40px;
+    font-size: 2em;
   }
 
   .pr-div {
     flex-grow: 0;
+  }
+
+  .pr-information {
+    font-size: 1.3em;
+  }
+
+  .pr-information.day {
+    font-size: 1.8em;
+  }
+
+  .icon {
+    width: 200px;
+    height: 200px;
+    left: -23%;
+    top: -20%;
+  }
+}
+
+@media screen and (min-width: 981px) {
+  .weather-container {
+    padding: 100px;
   }
 }
