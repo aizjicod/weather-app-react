@@ -68,8 +68,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   border-radius: 30px;
-  padding: 20px 10px;
+  padding: 100px ;
   backdrop-filter: blur(10px);
   font-weight: bold;
   color: #fff;
@@ -82,7 +83,7 @@
   transform: translate(-50%, -50%);
   width: 99%;
   height: 93%;
-  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToEw1oW4mgRLuSQ7BU2kN4iL1aiMAXs8dlMA&usqp=CAU) no-repeat;
+  background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQP91rAqKx4TT12Je0boirBC_RAO8PZz9IIJQ&usqp=CAU) no-repeat;
   background-size: cover;
   z-index: -999;
   filter: blur(10px);
@@ -109,16 +110,14 @@
   width: 100%;
   font-size: 2em;
   text-align: center;
+  z-index: 100;
 }
 
 .pr-div {
-  position: relative;
-  left: 250px;
-  top: 20px;
   display: grid;
   grid-auto-rows: 50px;
   gap: 10px;
-  padding: 50px;
+  padding: 20px;
   border-radius: 18px;
   align-items: flex-start;
   justify-content: center;
@@ -130,8 +129,8 @@
   width: 200px;
   height: 200px;
   position: absolute;
-  left: -55%;
-  top: -10%;
+  left: -23%;
+  top: -20%;
   font-weight: 900;
   align-self: flex-start;
   justify-self: flex-start;
@@ -149,17 +148,25 @@
 }
 
 .pr-information.day{
-  text-align: center;
   font-size: 1.8em;
 }
 
 .weather-ul {
   padding: 0;
-  width: 30%;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
+  justify-content: center;
+  border-radius: 18px;
+  padding: 2em;
   gap: 12px;
   list-style-type: none;
+  background: #00000080;
+  backdrop-filter: blur(10px);
+}
+
+.weather-ul li {
+ display: flex;
+ flex-wrap: wrap;
 }
 
 @media screen and (min-width: 768px) {
@@ -193,7 +200,7 @@
   }
 
   .weather-container {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .swiper-button-next,
