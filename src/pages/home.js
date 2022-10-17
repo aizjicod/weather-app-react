@@ -21,7 +21,7 @@ const Home = () => {
     if (value.trim() !== '') {
       dispatch(getForecastAction(value));
     }
-    document.getElementById('location-imput').value = '';
+    document.getElementById('location-input').value = '';
   };
   const handleOnChange = (e) => {
     setValue(e.target.value);
