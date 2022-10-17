@@ -13,7 +13,10 @@ const Weather = ({ index }) => {
   const date = data ? getDate(data[0].Date) : 'day';
   return (
     <div className="weather-container">
-      {searchWeatherUtilities.changeBackground(data[0].Day.Icon)}
+      {data
+        ? searchWeatherUtilities.changeBackground(data[0].Day.Icon)
+        : searchWeatherUtilities.changeBackground(1)}
+
       <h2 className="weather-h2">{location ? `${location.Country.EnglishName} / ${location.LocalizedName}` : 'city/state'}</h2>
       <div className="pr-div">
         {data
