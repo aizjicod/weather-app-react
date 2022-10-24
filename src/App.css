@@ -42,8 +42,7 @@
 /* app */
 
 .container {
-  padding: 100px 20px;
-  width: 100vw;
+  padding: 100px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -86,7 +85,7 @@
 /* swiper  */
 
 .swiper {
-  width: 90%;
+  width: 100vw;
 }
 
 .swiper-slide {
@@ -209,6 +208,11 @@
     width: 70%;
   }
 
+  .container {
+  width: 95vw;
+  padding: 100px 0;
+  }
+
   .header-img {
     height: 300px;
     width: 300px;
@@ -217,10 +221,13 @@
 
   .header-h1 {
     position: absolute;
-    left: 80px;
+    left: 30%;
     top: 120px;
-    width: 100%;
     font-size: 80px;
+  }
+
+  .swiper {
+    width: 90%;
   }
 
   .swiper-button-next,
